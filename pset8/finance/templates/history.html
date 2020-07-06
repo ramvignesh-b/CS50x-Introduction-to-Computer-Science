@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stocks
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">Transacted</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for stock in transactions %}
+      <tr>
+        <th scope="row">{{ stock[0] }}</th>
+        <td>{{ stock[1] }}</td>
+        <td>{{ stock[2] }}$</td>
+        <td>{{ stock[3] }}</td>
+      </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for transaction in stocks %}
+      <tr>
+        <th scope="row">{{ transaction[0] }}</th>
+        <td>{{ transaction[1] }}</td>
+        <td>{{ transaction[2] }}</td>
+        <td>{{ transaction[3] }}$</td>
+        <td>{{ transaction[4] }}$</td>
+      </tr>
+    {% endfor %}
+       <tr>
+          <th scope="row">CASH</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ cash }}$</td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong>{{ total }}$</strong></td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
